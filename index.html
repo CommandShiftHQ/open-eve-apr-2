@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>BMI Calculator</title>
+  </head>
+  <body>
+    <h1>BMI Calculator</h1>
+    <input id="weight" placeholder="Enter weight (kg)" />
+    <input id="height" placeholder="Enter height (m)" />
+    <!-- onclick is a special attribute that expects a JavaScript value -->
+    <button onclick="calculateBmi()">Calculate</button>
+    <div id="result"></div>
+
+    <script>
+      function calculateBmi() {
+        // get value of inputs with id attributes weight and height
+        // and convert them from strings (all inputs give back strings)
+        // to numbers
+        const weight = Number(document.getElementById("weight").value);
+        const height = Number(document.getElementById("height").value);
+
+        // Our formula - you can group with parentheses here but
+        // JavaScript will work out from left-to-right
+        const bmi = weight / height / height;
+        // bmi.toFixed rounds our number and turns it into a string
+        // which we then add onto our other string
+        const output = "Your BMI is: " + bmi.toFixed(2);
+
+        // innerHTML represents the content in between an opening and
+        // closing tag. In this case the div tag above with an id of
+        // result. We can reassign (=) what sits between these tags.
+        document.getElementById("result").innerHTML = output;
+      }
+    </script>
+  </body>
+</html>
